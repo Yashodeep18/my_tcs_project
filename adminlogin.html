@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Login Form</title>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link rel='stylesheet' href='index.css'>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("log").addEventListener("click", function (event) {
+                event.preventDefault(); // Prevent form submission
+                validateForm();
+            });
+        });
+
+        function validateForm() {
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            
+
+            // var emailPattern = /\S+@\S+\.\S+/; // Basic email pattern
+            // var passwordPattern = /^[A-Z].{5,}[!@#$%^&*]/; // Password pattern: first letter capital, at least 6 characters with one special character
+
+            // if (!emailPattern.test(email)) {
+            //     alert("Please enter a valid email address.");
+            //     return false;
+            // }
+
+            var passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
+            if (!passwordRegex.test(password)) {
+                alert("Password must start with a capital letter, be 6 digits long, and contain at least one special character.");
+                return false;
+            }
+
+            
+
+            // Login successful
+            alert("Login successful!");
+            return true;
+        }
+    </script>
+</head>
+
+<body>
+
+    <section>
+        <div class="form-box">
+            <div class="form-value">
+                <form >
+                    <h2> Admin Login</h2>
+                    <div class="inputbox"> <ion-icon name="mail-outline"></ion-icon> <input type="text" id="email" name="email" required>
+                        <label>Username</label>
+                    </div>
+                    <div class="inputbox"> <ion-icon name="lock-closed-outline"></ion-icon> <input type="password" id="password" name="password" required>
+                        <label>Password</label>
+                    </div>
+
+                    <div class="forget"> 
+                    </div> <button type="submit"  ><a href="programs/web.html">Log In</button>
+                    <div class="register">
+                        <p>Don't have an account? <a href="adminreg.html">Sign Up</a></p>
+                    </div>
+                
+                </form>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>
